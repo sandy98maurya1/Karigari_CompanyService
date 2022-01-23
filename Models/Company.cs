@@ -21,5 +21,7 @@ namespace Models
         public string Role { get; set; }
         public bool IsActive { get; set; }
         public string? RefreshToken { get; set; }
+        public bool disabled { get; set; }
+
     }
 }

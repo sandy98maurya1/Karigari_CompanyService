@@ -1,0 +1,16 @@
+2022-01-23 14:41:28.2765 INFO The ConnectionString property has not been initialized.
+2022-01-23 14:41:28.3047 INFO The ConnectionString property has not been initialized.
+2022-01-23 14:47:32.1784 INFO The ConnectionString property has not been initialized.
+2022-01-23 14:47:32.2103 INFO The ConnectionString property has not been initialized.
+2022-01-23 14:49:48.3034 INFO The ConnectionString property has not been initialized.
+2022-01-23 14:49:48.3243 INFO The ConnectionString property has not been initialized.
+2022-01-23 14:56:14.7741 INFO The member AddressId of type Models.Address cannot be used as a parameter value
+2022-01-23 14:56:14.7942 INFO The member AddressId of type Models.Address cannot be used as a parameter value
+2022-01-23 14:56:23.9241 INFO The member AddressId of type Models.Address cannot be used as a parameter value
+2022-01-23 14:56:23.9241 INFO The member AddressId of type Models.Address cannot be used as a parameter value
+2022-01-23 14:57:08.4475 INFO The member AddressId of type Models.Address cannot be used as a parameter value
+2022-01-23 14:57:08.4475 INFO The member AddressId of type Models.Address cannot be used as a parameter value
+2022-01-23 15:08:53.7416 INFO 
+2022-01-23 15:38:30.8351 INFO Incorrect syntax near ')'.
+2022-01-23 15:38:30.8671 INFO Incorrect syntax near ')'.
+2022-01-23 15:42:34.5855 INFO 
