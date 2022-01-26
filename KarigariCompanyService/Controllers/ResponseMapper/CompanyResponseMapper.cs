@@ -9,7 +9,7 @@ namespace KarigariCompanyService.Controllers.ResponseMapper
     {
         public static ApiResponse<bool> CreateCompanyResponse(this bool status)
         {
-            if(status)
+            if (status)
             {
                 return new ApiResponse<bool>
                 {
@@ -29,28 +29,17 @@ namespace KarigariCompanyService.Controllers.ResponseMapper
             }
         }
 
-        public static ApiResponse<Company> UpdateCompanyResponse(this Company model)
+        public static ApiResponse<bool> UpdateCompanyResponse(this bool status)
         {
-            if (model != null)
+
+            return new ApiResponse<bool>
             {
-                return new ApiResponse<Company>
-                {
-                    Message = string.Format(Messages.Success),
-                    IsSuccess = true,
-                    Data = model,
-                    StatusCode = 200
-                };
-            }
-            else
-            {
-                return new ApiResponse<Company>
-                {
-                    Message = string.Format(Messages.CreateFail, "Company"),
-                    IsSuccess = false,
-                    Data = null,
-                    StatusCode = 400
-                };
-            }
+                Message = string.Format(Messages.Success),
+                IsSuccess = true,
+                StatusCode = 200
+            };
+
+
         }
 
         public static ApiResponse<bool> DeleteCompanyResponse(this bool status)
@@ -120,7 +109,7 @@ namespace KarigariCompanyService.Controllers.ResponseMapper
                 };
             }
         }
-       
+
         public static ApiResponse<Company> GetCompanyByNameResponse(this Company company)
         {
             if (company != null)

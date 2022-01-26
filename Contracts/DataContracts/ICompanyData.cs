@@ -9,11 +9,11 @@ namespace Contracts.DataContracts
 {
     public interface ICompanyData
     {
-        Company GetCompanyByName(string companyName);
-        Company GetCompanyById(int Id);
         IEnumerable<Company> GetCompanies();
+        Company GetCompanyById(int Id);
+        Company GetCompanyByName(string companyName);    
         bool CreateCompany(Company company);
-        Company UpdateCompany(Company company);
+        bool UpdateCompany(Company company, int Id);
         bool DeleteCompany(int Id);
         bool DisableCompany(int Id);
     }

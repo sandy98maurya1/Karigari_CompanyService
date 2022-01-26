@@ -31,6 +31,8 @@ namespace KarigariCompanyService
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddSingleton<IConfiguration>(Configuration);
+
             //Logger Service
             services.AddSingleton<ILoggerManager, LoggerManager>();
 

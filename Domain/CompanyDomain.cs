@@ -43,9 +43,9 @@ namespace Domain
             return companyData.GetCompanyByName(companyName);
         }
 
-        public Company UpdateCompany(Company company)
+        public bool UpdateCompany(Company company, int id)
         {
-            return companyData.UpdateCompany(company);
+            return companyData.UpdateCompany(company,  id);
         }
     }
 }

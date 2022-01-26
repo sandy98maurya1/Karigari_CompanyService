@@ -43,18 +43,18 @@ namespace KarigariCompanyService.Controllers
         }
 
         [HttpPost, Route("/UpdateCompany")]
-        public IActionResult UpdateCompany(Company model)
+        public IActionResult UpdateCompany(Company model, int Id)
         {
-            ApiResponse<Company> responce = new ApiResponse<Company>();
+            ApiResponse<bool> responce = new ApiResponse<bool>();
             try
             {
                 ApiExposeResponse<Dictionary<string, string>> modelErrors = GetModelErrors();
-                var response = company.UpdateCompany(model).UpdateCompanyResponse();
+                var response = company.UpdateCompany(model,Id).UpdateCompanyResponse();
 
             }
             catch (System.Exception ex)
             {
-                responce = CompanyResponseMapper.CacheCompanyExceptionResponse(ex);
+                responce = CompanyResponseMapper.CacheExceptionResponse(ex);
                 logger.LogInfo(ex.Message); ;
             }
 

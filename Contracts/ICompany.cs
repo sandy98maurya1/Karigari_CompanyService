@@ -13,7 +13,7 @@ namespace Contracts
         Company GetCompanyById(int Id);
         IEnumerable<Company> GetCompanies();
         bool CreateCompany(Company company);
-        Company UpdateCompany(Company company);
+        bool UpdateCompany(Company company, int Id);
         bool DeleteCompany(int Id);
         bool DisableCompany(int Id);
     }
