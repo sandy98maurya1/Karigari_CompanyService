@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using Utility;
 
-namespace Company.Controllers.ResponseMapper
+namespace KarigariCompanyService.Controllers.ResponseMapper
 {
     public static class JobPostResponseMapper
     {
@@ -78,7 +78,7 @@ namespace Company.Controllers.ResponseMapper
             }
         }
       
-        public static ApiResponse<JobPost> CacheExceptionResponse(this Exception ex)
+        public static ApiResponse<JobPost> CacheJobPostExceptionResponse(this Exception ex)
         {
             return new ApiResponse<JobPost>
             {

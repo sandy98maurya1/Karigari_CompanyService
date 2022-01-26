@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Models;
 using System;
 using System.Collections.Generic;
-using Company.Controllers.ResponseMapper;
+using KarigariCompanyService.Controllers.ResponseMapper;
 using Utility.LoggerService;
 using Utility;
 
@@ -33,7 +33,7 @@ namespace KarigariCompanyService.Controllers
             }
             catch (Exception ex)
             {
-                responce = ex.CacheExceptionResponse();
+                responce = ex.CacheJobPostExceptionResponse();
                 _logger.LogInfo(ex.Message);
             }
             _logger.LogInfo(responce.Message);
@@ -72,7 +72,7 @@ namespace KarigariCompanyService.Controllers
             }
             catch (Exception ex)
             {
-                responce = ex.CacheExceptionResponse();
+                responce = ex.CacheJobPostExceptionResponse();
                 _logger.LogInfo(ex.Message);
             }
             _logger.LogInfo(responce.Message);
@@ -91,7 +91,7 @@ namespace KarigariCompanyService.Controllers
             }
             catch (Exception ex)
             {
-                responce = ex.CacheExceptionResponse();
+                responce = ex.CacheJobPostExceptionResponse();
                 _logger.LogInfo(ex.Message);
             }
             _logger.LogInfo(responce.Message);
