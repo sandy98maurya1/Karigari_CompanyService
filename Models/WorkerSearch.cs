@@ -8,7 +8,7 @@ namespace Models
 {
     public class WorkerSearch
     {
-        public int JobType { get; set; }
-        public int Location { get; set; }
+        public string JobType { get; set; }
+        public string Location { get; set; }
     }
 }
