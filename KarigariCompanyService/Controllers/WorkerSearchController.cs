@@ -23,7 +23,7 @@ namespace KarigariCompanyService.Controllers
         }
 
         [HttpGet, Route("/SearchByJobType")]
-        public IActionResult GetWorkerByJobType(string jobType)
+        public IActionResult GetWorkerByJobType(int jobType)
         {
             ApiListResponse<IEnumerable<WorkerSearch>> responce = new ApiListResponse<IEnumerable<WorkerSearch>>();
             try
@@ -42,7 +42,7 @@ namespace KarigariCompanyService.Controllers
         }
 
         [HttpGet, Route("/SearchByLocation")]
-        public IActionResult GetWorkerByLocation(string jobType, string location)
+        public IActionResult GetWorkerByLocation(int jobType, int location)
         {
             ApiListResponse<IEnumerable<WorkerSearch>> responce = new ApiListResponse<IEnumerable<WorkerSearch>>();
             try

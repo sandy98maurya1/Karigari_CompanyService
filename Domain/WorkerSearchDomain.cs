@@ -16,12 +16,12 @@ namespace Domain
         {
             _workerSearch = workerSearch;
         }
-        public IEnumerable<WorkerSearch> GetWorkerByJobType(string JobType)
+        public IEnumerable<WorkerSearch> GetWorkerByJobType(int JobType)
         {
             return _workerSearch.GetWorkerByJobType(JobType);
         }
 
-        public IEnumerable<WorkerSearch> GetWorkerByLocation(string JobType, string Location)
+        public IEnumerable<WorkerSearch> GetWorkerByLocation(int JobType, int Location)
         {
             return _workerSearch.GetWorkerByLocation(JobType,Location);
         }

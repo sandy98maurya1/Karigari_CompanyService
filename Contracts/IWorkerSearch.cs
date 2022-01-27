@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IWorkerSearch
     {
-        IEnumerable<WorkerSearch> GetWorkerByJobType(string JobType);
-        IEnumerable<WorkerSearch> GetWorkerByLocation(string JobType, string Location);
+        IEnumerable<WorkerSearch> GetWorkerByJobType(int JobType);
+        IEnumerable<WorkerSearch> GetWorkerByLocation(int JobType, int Location);
     }
 }

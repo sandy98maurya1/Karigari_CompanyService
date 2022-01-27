@@ -23,7 +23,7 @@ namespace Data
             connection = GetConnection();
         }
 
-        public IEnumerable<WorkerSearch> GetWorkerByJobType(string JobType)
+        public IEnumerable<WorkerSearch> GetWorkerByJobType(int JobType)
         {
             IEnumerable<WorkerSearch> result;
 
@@ -32,7 +32,8 @@ namespace Data
                 try
                 {
                     dbConnection.Open();
-                    var query = @""; //TODO : 
+                    var query = @"SELECT Id,	Duration,	AvailableDate,	JobTypeID,	LocationID,	UserID 
+                                FROM Worker_Job_Profile WHERE JobTypeID = @JobType"; 
                     result = (IEnumerable<WorkerSearch>)dbConnection.Query<IEnumerable<WorkerSearch>>(query, new { @JobType = JobType }).ToList();
                 }
                 catch (Exception ex)
@@ -48,7 +49,7 @@ namespace Data
             }
         }
 
-        public IEnumerable<WorkerSearch> GetWorkerByLocation(string JobType, string Location)
+        public IEnumerable<WorkerSearch> GetWorkerByLocation(int JobType, int Location)
         {
             IEnumerable<WorkerSearch> result;
 
@@ -57,7 +58,8 @@ namespace Data
                 try
                 {
                     dbConnection.Open();
-                    var query = @""; //TODO : 
+                    var query = @"SELECT Id,	Duration,	AvailableDate,	JobTypeID,	LocationID,	UserID 
+                                FROM Worker_Job_Profile WHERE JobTypeID = @JobType AND LocationId = @Location";
                     result = (IEnumerable<WorkerSearch>)dbConnection.Query<IEnumerable<WorkerSearch>>(query, new { @JobType = JobType, @Location = Location }).FirstOrDefault();
                 }
                 catch (Exception ex)
