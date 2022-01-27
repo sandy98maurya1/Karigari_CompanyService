@@ -22,8 +22,8 @@ namespace KarigariCompanyService.Controllers
             _logger = logger;
         }
 
-        [HttpGet, Route("/GetJobPostByUserId")]
-        public IActionResult GetProfileByUserId(int postId, int companyId)
+        [HttpGet, Route("/GetJobPostById")]
+        public IActionResult GetProfileById(int postId, int companyId)
         {
             ApiResponse<JobPost> responce = new ApiResponse<JobPost>();
             try
@@ -61,8 +61,8 @@ namespace KarigariCompanyService.Controllers
         }
 
 
-        [HttpPost, Route("/CreateUserjobPost")]
-        public IActionResult CreateUserjobPost(JobPost jobPost)
+        [HttpPost, Route("/CreateJobPost")]
+        public IActionResult CreateJobPost(JobPost jobPost)
         {
             ApiResponse<JobPost> responce = new ApiResponse<JobPost>();
             try
@@ -81,7 +81,7 @@ namespace KarigariCompanyService.Controllers
         }
 
         [HttpPost, Route("/UpdateJobPost")]
-        public IActionResult UpdateUserjobPost(JobPost jobPost)
+        public IActionResult UpdateJobPost(JobPost jobPost)
         {
             ApiResponse<JobPost> responce = new ApiResponse<JobPost>();
             try

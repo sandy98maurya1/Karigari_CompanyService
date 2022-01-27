@@ -13,7 +13,7 @@ namespace KarigariCompanyService.Controllers.ResponseMapper
             {
                 return new ApiResponse<bool>
                 {
-                    Message = string.Format(Messages.Success),
+                    Message = string.Format(Messages.CreateSucess,"Company"),
                     IsSuccess = true,
                     StatusCode = 200
                 };
@@ -34,7 +34,7 @@ namespace KarigariCompanyService.Controllers.ResponseMapper
 
             return new ApiResponse<bool>
             {
-                Message = string.Format(Messages.Success),
+                Message = string.Format(Messages.UpdateSucess,"Company"),
                 IsSuccess = true,
                 StatusCode = 200
             };
@@ -48,7 +48,7 @@ namespace KarigariCompanyService.Controllers.ResponseMapper
             {
                 return new ApiResponse<bool>
                 {
-                    Message = string.Format(Messages.DeleteSucess),
+                    Message = string.Format(Messages.DeleteSucess,"Company"),
                     IsSuccess = true,
                     StatusCode = 200
                 };
@@ -70,7 +70,7 @@ namespace KarigariCompanyService.Controllers.ResponseMapper
             {
                 return new ApiResponse<bool>
                 {
-                    Message = string.Format(Messages.DisableSucess),
+                    Message = string.Format(Messages.DisableSucess,"Company"),
                     IsSuccess = true,
                     StatusCode = 200
                 };

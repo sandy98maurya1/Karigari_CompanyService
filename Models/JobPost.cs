@@ -10,12 +10,12 @@ namespace Models
     {
         public int Id { get; set; }
         public int Duration { get; set; }
-        public DateTime JobAvailableDate { get; set; }
+        public DateTime? JobAvailableDate { get; set; }
         public int JobTypeID { get; set; }
         public int LocationID { get; set; }
         public int UserID { get; set; }
         public bool IsAccomodation { get; set; }
         public int NoOfPositions { get; set; }
-        public long CompanyId { get; set; }
+        public int CompanyId { get; set; }
     }
 }

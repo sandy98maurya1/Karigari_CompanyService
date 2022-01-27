@@ -29,7 +29,7 @@ namespace KarigariCompanyService.Controllers
             try
             {
                 ApiExposeResponse<Dictionary<string, string>> modelErrors = GetModelErrors();
-                var response = company.CreateCompany(model).CreateCompanyResponse();
+                responce = company.CreateCompany(model).CreateCompanyResponse();
 
             }
             catch (System.Exception ex)
@@ -49,7 +49,7 @@ namespace KarigariCompanyService.Controllers
             try
             {
                 ApiExposeResponse<Dictionary<string, string>> modelErrors = GetModelErrors();
-                var response = company.UpdateCompany(model,Id).UpdateCompanyResponse();
+                responce = company.UpdateCompany(model,Id).UpdateCompanyResponse();
 
             }
             catch (System.Exception ex)
@@ -89,7 +89,7 @@ namespace KarigariCompanyService.Controllers
             try
             {
                 ApiExposeResponse<Dictionary<string, string>> modelErrors = GetModelErrors();
-                var response = company.DisableCompany(CompanyId).DisableCompanyResponse();
+                responce = company.DisableCompany(CompanyId).DisableCompanyResponse();
 
             }
             catch (System.Exception ex)
@@ -109,7 +109,7 @@ namespace KarigariCompanyService.Controllers
             try
             {
                 ApiExposeResponse<Dictionary<string, string>> modelErrors = GetModelErrors();
-                var response = company.GetCompanyById(Id).GetCompanyByIdResponse();
+                responce = company.GetCompanyById(Id).GetCompanyByIdResponse();
 
             }
             catch (System.Exception ex)
@@ -129,7 +129,7 @@ namespace KarigariCompanyService.Controllers
             try
             {
                 ApiExposeResponse<Dictionary<string, string>> modelErrors = GetModelErrors();
-                var response = company.GetCompanyByName(Name).GetCompanyByNameResponse();
+                responce = company.GetCompanyByName(Name).GetCompanyByNameResponse();
 
             }
             catch (System.Exception ex)
@@ -149,7 +149,7 @@ namespace KarigariCompanyService.Controllers
             try
             {
                 ApiExposeResponse<Dictionary<string, string>> modelErrors = GetModelErrors();
-                var response = company.GetCompanies().GetCompaniesResponse();
+                responce = company.GetCompanies().GetCompaniesResponse();
 
             }
             catch (System.Exception ex)

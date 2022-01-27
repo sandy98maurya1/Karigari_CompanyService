@@ -38,11 +38,14 @@ namespace KarigariCompanyService
 
             //Repository Contracts Registration
             services.AddScoped<ICompany, CompanyDomain>();
+            services.AddScoped<IJobPost, JobPostDomain>();
+            services.AddScoped<IWorkerSearch, WorkerSearchDomain>();
 
             //Data Contracts registration
             services.AddScoped<ICompanyData, CompanyData>();
+            services.AddScoped<IJobPostData, JobPostData>();
+            services.AddScoped<IWorkerSearchData, WorkerSearchData>();
 
-            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KarigariCompanyService", Version = "v1" });

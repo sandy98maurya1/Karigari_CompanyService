@@ -116,7 +116,7 @@ namespace Data
                     using (var transaction = dbConnection.BeginTransaction())
                     {
 
-                        dbConnection.Query<int>(@"Update Worker_Job_Profile set Duration=@Duration,JobAvailableDate=@JobAvailableDate,JobTypeID=@JobTypeID,LocationID=@LocationID, IsAccomodation = @IsAccomodation, @NoOfPositions = NoOfPositions Where CompanyId = @CompanyId ",
+                        dbConnection.Query<int>(@"Update Company_Job_Post set Duration=@Duration,JobAvailableDate=@JobAvailableDate,JobTypeID=@JobTypeID,LocationID=@LocationID, IsAccomodation = @IsAccomodation, @NoOfPositions = NoOfPositions Where CompanyId = @CompanyId ",
                         new { @Duration = jobPost.Duration, @JobAvailableDate = jobPost.JobAvailableDate, @JobTypeID = jobPost.JobTypeID, @LocationID = jobPost.LocationID, @IsAccomodation = jobPost.IsAccomodation, @NoOfPositions = jobPost.NoOfPositions, @CompanyId = jobPost.CompanyId }, transaction: transaction);
                         transaction.Commit();
                         jobPostResult = jobPost;
