@@ -32,8 +32,20 @@ namespace Data
                 try
                 {
                     dbConnection.Open();
-                    var query = @"SELECT Id,	Duration,	AvailableDate,	JobTypeID,	LocationID,	UserID 
-                                FROM Worker_Job_Profile WHERE JobTypeID = @JobType"; 
+                    var query = @"SELECT w.Duration
+                                 , j.JobName as JobType
+                                 , l.Name as Location 
+                                 , w.AvailableDate 
+                                 , u.FirstName + ' ' + u.LastName as UserName 
+                                 , u.Contact
+                                FROM Worker_Job_Profile w 
+                                INNER JOIN JobType j 
+                                ON w.JobTypeID = j.Id
+                                INNER JOIN Location_State l
+                                ON w.LocationID = l.Id
+                                INNER JOIN Users u 
+                                ON w.UserID = u.Id
+                                WHERE w.JobTypeID = @JobType"; 
                     result = (IEnumerable<WorkerSearch>)dbConnection.Query<IEnumerable<WorkerSearch>>(query, new { @JobType = JobType }).ToList();
                 }
                 catch (Exception ex)
@@ -58,8 +70,15 @@ namespace Data
                 try
                 {
                     dbConnection.Open();
-                    var query = @"SELECT Id,	Duration,	AvailableDate,	JobTypeID,	LocationID,	UserID 
-                                FROM Worker_Job_Profile WHERE JobTypeID = @JobType AND LocationId = @Location";
+                    var query = @"SELECT w.Duration, j.JobName as JobType, l.Name as Location, w.AvailableDate, u.FirstName + ' ' + u.LastName as UserName, u.Contact
+                                FROM Worker_Job_Profile w
+                                INNER JOIN JobType j
+                                ON w.JobTypeID = j.Id
+                                INNER JOIN Location_State l
+                                ON w.LocationID = l.Id
+                                INNER JOIN Users u
+                                ON w.UserID = u.Id
+                                WHERE JobTypeID = @JobType AND LocationId = @Location";
                     result = (IEnumerable<WorkerSearch>)dbConnection.Query<IEnumerable<WorkerSearch>>(query, new { @JobType = JobType, @Location = Location }).FirstOrDefault();
                 }
                 catch (Exception ex)
