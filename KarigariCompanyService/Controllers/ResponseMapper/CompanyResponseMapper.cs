@@ -158,6 +158,67 @@ namespace KarigariCompanyService.Controllers.ResponseMapper
             }
         }
 
+        public static ApiListResponse<IList<StateDetails>> GetCountryResponce(this IList<StateDetails> country)
+        {
+            return new ApiListResponse<IList<StateDetails>>
+            {
+                Message = string.Format(Messages.Success),
+                IsSuccess = true,
+                Data = country,
+                StatusCode = 200
+            };
+        }
+        public static ApiResponse<IList<StateDetails>> CacheExceptionCountryResponse(this Exception ex)
+        {
+            return new ApiResponse<IList<StateDetails>>
+            {
+                IsSuccess = false,
+                Data = null,
+                Message = ex.Message
+            };
+        }
+
+        public static ApiListResponse<IList<DivisionDetails>> GetDivisionResponce(this IList<DivisionDetails> division)
+        {
+            return new ApiListResponse<IList<DivisionDetails>>
+            {
+                Message = string.Format(Messages.Success),
+                IsSuccess = true,
+                Data = division,
+                StatusCode = 200
+            };
+        }
+        public static ApiResponse<IList<DivisionDetails>> CacheExceptionDivisionResponse(this Exception ex)
+        {
+            return new ApiResponse<IList<DivisionDetails>>
+            {
+                IsSuccess = false,
+                Data = null,
+                Message = ex.Message
+            };
+        }
+
+        public static ApiListResponse<IList<TalukaDetails>> GetTalukaResponce(this IList<TalukaDetails> taluka)
+        {
+            return new ApiListResponse<IList<TalukaDetails>>
+            {
+                Message = string.Format(Messages.Success),
+                IsSuccess = true,
+                Data = taluka,
+                StatusCode = 200
+            };
+        }
+        public static ApiResponse<IList<TalukaDetails>> CacheExceptionTalukaDetailsResponse(this Exception ex)
+        {
+            return new ApiResponse<IList<TalukaDetails>>
+            {
+                IsSuccess = false,
+                Data = null,
+                Message = ex.Message
+            };
+        }
+
+
         public static ApiResponse<bool> CacheExceptionResponse(this Exception ex)
         {
             return new ApiResponse<bool>

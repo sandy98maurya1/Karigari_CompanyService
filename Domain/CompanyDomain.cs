@@ -47,5 +47,12 @@ namespace Domain
         {
             return companyData.UpdateCompany(company,  id);
         }
+
+        public IList<DivisionDetails> GetDivisionDetails(int stateId) => companyData.GetDivisionDetails(stateId);
+
+        public IList<StateDetails> GetStateDetails(int countryId) => companyData.GetStateDetails(countryId);
+
+        public IList<TalukaDetails> GetTalukaDetails(int divisionId) => companyData.GetTalukaDetails(divisionId);
+
     }
 }

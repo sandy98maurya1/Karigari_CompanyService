@@ -16,5 +16,9 @@ namespace Contracts.DataContracts
         bool UpdateCompany(Company company, int Id);
         bool DeleteCompany(int Id);
         bool DisableCompany(int Id);
+
+        IList<TalukaDetails> GetTalukaDetails(int divisionId);
+        IList<DivisionDetails> GetDivisionDetails(int stateId);
+        IList<StateDetails> GetStateDetails(int countryId);
     }
 }

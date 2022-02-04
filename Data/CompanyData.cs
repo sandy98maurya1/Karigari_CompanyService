@@ -223,6 +223,90 @@ namespace Data
             user.Address = address;
             return user;
         }
+
+
+        public IList<StateDetails> GetStateDetails(int countryId)
+        {
+            IList<StateDetails> state = new List<StateDetails>();
+            using (var dbConnection = new SqlConnection(connection))
+            {
+                try
+                {
+                    dbConnection.Open();
+                    var query = @"SELECT Id,Name FROM [dbo].[Address_State]";
+
+                    state = (List<StateDetails>)dbConnection.Query<StateDetails>(query);
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    dbConnection.Close();
+                }
+
+                return state;
+            }
+        }
+
+
+        public IList<DivisionDetails> GetDivisionDetails(int stateId)
+        {
+            IList<DivisionDetails> divisions = new List<DivisionDetails>();
+            using (var dbConnection = new SqlConnection(connection))
+            {
+                try
+                {
+                    dbConnection.Open();
+                    var query = @"SELECT Id,Name, State_Id as StateId FROM [dbo].[Address_Division] where State_Id= @Id";
+
+                    divisions = (List<DivisionDetails>)dbConnection.Query<DivisionDetails>(query, new { @Id = stateId });
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    dbConnection.Close();
+                }
+
+                return divisions;
+            }
+        }
+
+
+        public IList<TalukaDetails> GetTalukaDetails(int divisionId)
+        {
+            IList<TalukaDetails> talukaDetails = new List<TalukaDetails>();
+            using (var dbConnection = new SqlConnection(connection))
+            {
+                try
+                {
+                    dbConnection.Open();
+                    var query = @"SELECT Id,Name,  Division_ID as DivisionId FROM [dbo].[Address_Districts_Taluka] where Division_ID= @Id";
+
+                    talukaDetails = (IList<TalukaDetails>)dbConnection.Query<TalukaDetails>(query, new { @Id = divisionId });
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    dbConnection.Close();
+                }
+
+                return talukaDetails;
+            }
+        }
+
+
+
         public string GetConnection()
         {
             return _configuration.GetSection("ConnectionStrings").GetSection("ProductContext").Value;

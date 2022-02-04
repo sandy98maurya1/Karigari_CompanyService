@@ -3,6 +3,7 @@ using KarigariCompanyService.Controllers.ResponseMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using System;
 using System.Collections.Generic;
 using Utility;
 using Utility.LoggerService;
@@ -158,6 +159,60 @@ namespace KarigariCompanyService.Controllers
                 logger.LogInfo(ex.Message); ;
             }
 
+            logger.LogInfo(responce.Message);
+            return Ok(responce);
+        }
+
+        [HttpGet, Route("/GetStateDetails")]
+        public ActionResult GetStateDetails(int countryId)
+        {
+            ApiResponse<IList<StateDetails>> responce = new ApiResponse<IList<StateDetails>>();
+            try
+            {
+                ApiExposeResponse<Dictionary<string, string>> modelErrors = GetModelErrors();
+                responce = company.GetStateDetails(countryId).GetCountryResponce();
+            }
+            catch (Exception ex)
+            {
+                logger.LogInfo(ex.Message);
+                responce = ex.CacheExceptionCountryResponse();
+            }
+            logger.LogInfo(responce.Message);
+            return Ok(responce);
+        }
+
+        [HttpGet, Route("/GetDivisionDetails")]
+        public ActionResult GetDivisionDetails(int stateId)
+        {
+            ApiResponse<IList<DivisionDetails>> responce = new ApiResponse<IList<DivisionDetails>>();
+            try
+            {
+                ApiExposeResponse<Dictionary<string, string>> modelErrors = GetModelErrors();
+                responce = company.GetDivisionDetails(stateId).GetDivisionResponce();
+            }
+            catch (Exception ex)
+            {
+                logger.LogInfo(ex.Message);
+                responce = ex.CacheExceptionDivisionResponse();
+            }
+            logger.LogInfo(responce.Message);
+            return Ok(responce);
+        }
+
+        [HttpGet, Route("/GetTalukaDetails")]
+        public ActionResult GetTalukaDetails(int divisionId)
+        {
+            ApiResponse<IList<TalukaDetails>> responce = new ApiResponse<IList<TalukaDetails>>();
+            try
+            {
+                ApiExposeResponse<Dictionary<string, string>> modelErrors = GetModelErrors();
+                responce = company.GetTalukaDetails(divisionId).GetTalukaResponce();
+            }
+            catch (Exception ex)
+            {
+                logger.LogInfo(ex.Message);
+                responce = ex.CacheExceptionTalukaDetailsResponse();
+            }
             logger.LogInfo(responce.Message);
             return Ok(responce);
         }
